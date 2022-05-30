@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Document</title>
+
+        <style></style>
+    </head>
+    <body>
+
+
+        <script>
+
+            class Movie {
+                constructor(nameMovie, year, actors = []) {
+                    this.nameMovie = nameMovie;
+                    this.year = year;
+                    this.actors = actors;
+                }
+
+                printDetail() { // vypisanie do konzoly
+                    console.log("Názov filmu: " + this.nameMovie + "\nRok: " + this.year + "\nHerci: ")
+
+                    for (let i = 0; i < this.actors.length; i++) {
+                        console.log(this.actors[i] + "\n");
+                    }
+                    //console.log("*********Koniec vypisu*********");
+                    console.log("——————————————————————————————————————————");
+                }
+
+                // funkcia, ktorá vypíše herca, ktorý má najdlhšie meno
+                printLongestActor() {
+                    let lengthName = 0;
+                    let longestName = ' ';
+
+                    for (let i = 0; i < this.actors.length; i++) {
+
+                        if (this.actors[i].length > lengthName) { 
+                            lengthName = this.actors[i].length; 
+                            longestName = this.actors[i];
+                        }
+                    }
+                    console.log("******************************************");
+                    console.log("Najdlhšie meno herca z filmu " + this.nameMovie + " je → " + longestName);
+                }
+
+            }
+
+            const film1 = new Movie("Sherlock Holmes: Hra tieňov", 2011, [
+                "Robert Downey Jr.",
+                "Jude Law",
+                "Noomi Rapace",
+                "Jared Harris",
+                "Eddie Marsan"
+            ])
+
+            const film2 = new Movie("Sedem životov", 2008, [
+                "Will Smith",
+                "Rosario Dawson",
+                "Woody Harrelson",
+                "Barry Pepper",
+                "Elpidia Carrillo"
+            ])
+
+            film1.printDetail();
+            film2.printDetail();
+
+            film1.printLongestActor();
+            film2.printLongestActor();
+            
+        </script>
+
+    </body>
+</html>
